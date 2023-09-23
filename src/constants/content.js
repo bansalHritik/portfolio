@@ -1,3 +1,9 @@
+function skill(name, logo) {
+  return {
+    title: name, logo
+  }
+}
+
 export const IntroductionContent = {
   greeting: "Hey There! 👋",
   name: "I'm Ritik Bansal",
@@ -12,53 +18,62 @@ export const SkillSetContent = [
   {
     title: "Frontend",
     skills: [
-      { title: "Dotnet", logo: "dotnet" },
-      { title: "C#", logo: "csharp" },
-      { title: "Java", logo: "java" },
-      { title: "React", logo: "react" },
-      { title: "Angular", logo: "angular" },
+      skill("Dotnet","dotnet"),
+      skill("C#","csharp"),
+      skill("Java","java"),
+      skill("React","react"),
+      skill("Angular","angular"),
     ],
   },
   {
     title: "Backend",
     skills: [
-      { title: "Dotnet", logo: "dotnet" },
-      { title: "C#", logo: "csharp" },
-      { title: "Java", logo: "java" },
-      { title: "React", logo: "react" },
-      { title: "Angular", logo: "angular" },
+      skill("Dotnet", "dotnet"),
+      skill("C#", "csharp"),
+      skill("Java", "java"),
+      skill("React", "react"),
+      skill("Angular", "angular"),
     ],
   },
   {
     title: "Cloud Services",
     skills: [
-      {
-        title: "API Gateway",
-      },
-      {
-        title: "DynamoDB",
-      },
-      {
-        title: "Step Function",
-      },
-      {
-        title: "Lambda Function",
-      },
+      skill("API Gateway"),
+      skill("DynamoDB"),
+      skill("Step Function"),
+      skill("Lambda Function"),
     ],
   },
 ];
 
 export const ExperienceContent = {
   heading: "Experience",
-  subHeading: "This contains all of my experince in the industry in the last 3 years.",
+  subHeading: "Details of all of my professional experience in the industry.",
   experiences: [
     {
       position: "Software Engineer",
       companyName: "Nagarro",
-      date: "06-Jan-2021 To Present",
-      skills: [".Net Framework", "Angular", ".Net Core", "React", "Git"],
+      date: "Jan-2021 To Present",
+      skills: [
+        skill(".Net Framework"),
+        skill("Angular"),
+        skill(".Net Core"),
+        skill("React"),
+        skill("Git")
+      ],
       shortDesc: "It has been around 2 and half year working in this company.",
     },
+    {
+      position: "Software Developer Intern",
+      companyName: "Memorres",
+      date: "Oct-2020 To Jan-2021",
+      skills: [
+        skill("React"),
+        skill("React Native"),
+        skill("Express"),
+        skill("TypeScript")
+      ]
+    }
   ],
 };
 
@@ -67,10 +82,28 @@ export const ProjectContent = {
   subHeading: "",
   projects: [
     {
-      name: "PlaceMe",
+      name: "Place Me",
       date: "12-22-1232",
       description: "A placement platform for collage students in house.",
       imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
+      repo: "",
+      link: ""
+    },
+    {
+      name: "Mp3 Song classifier",
+      date: "12-22-1232",
+      description: "A console tool to categorize mp3 songs based on their genre, artist, etc",
+      imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
+      repo: "",
+      link: ""
+    },
+    {
+      name: "Book Shala",
+      date: "12-22-1232",
+      description: "A intra-college platform to share books and notes among the juniors and peers.",
+      imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
+      repo: "",
+      link: ""
     },
   ],
 };

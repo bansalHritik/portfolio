@@ -114,7 +114,7 @@ const Skill = ({ title, skills }) => {
       <p className="text-center text-gray-200 font-semibold text-2xl mb-5">{title}</p>
       <div className="flex flex-row justify-center flex-wrap gap-3">
         {skills?.map((props, index) => (
-          <Chip key={props.logo+index} {...props} containerClassName="flex items-center border-2 border-gray-600 py-2 px-3 rounded-lg" />
+          <Chip key={props.name+index} {...props} containerClassName="flex items-center border-2 border-gray-600 py-2 px-3 rounded-lg" />
         ))}
       </div>
     </div>
@@ -149,7 +149,7 @@ const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
           {skills?.map((skill, index) => (
             <Chip
               key={index}
-              title={skill}
+              {...skill}
               containerClassName="flex items-center border-2 border-gray-600 py-2 px-2 rounded-lg gap-1 flex justify-center items-center"
             />
           ))}
@@ -158,8 +158,6 @@ const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
     </div>
   );
 };
-
-
 
 export const HomePage = () => (
   <div className="bg-text text-white flex flex-col">
