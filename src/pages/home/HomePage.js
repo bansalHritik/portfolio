@@ -110,11 +110,11 @@ export const Projects = ({ heading, subHeading, projects }) => {
 
 const Skill = ({ title, skills }) => {
   return (
-    <div className="flex flex-col shadow-md shadow-[#1e599d] border-[1px] rounded-md border-[#1e599d] w-96 justify-between mt-7 p-5">
+    <div className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary w-96 justify-between p-5">
       <p className="text-center text-gray-200 font-semibold text-2xl mb-5">{title}</p>
-      <div className="flex flex-row justify-center flex-wrap gap-3">
+      <div className="flex flex-1 justify-center items-center flex-wrap gap-x-2">
         {skills?.map((props, index) => (
-          <Chip key={props.name+index} {...props} containerClassName="flex items-center border-2 border-gray-600 py-2 px-3 rounded-lg" />
+          <Chip key={props.name+index} {...props} />
         ))}
       </div>
     </div>
@@ -124,7 +124,7 @@ const Skill = ({ title, skills }) => {
 export const SkillSet = ({ skillSets }) => {
   return (
     <Section heading="Skills">
-      <div className="flex flex-1 justify-around">
+      <div className="flex flex-1 justify-around gap-x-6">
         {skillSets?.map((skillset, index) => (
           <Skill {...skillset} key={ index} />
         ))}
