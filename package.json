@@ -1,11 +1,13 @@
 {
   "name": "personal-portfolio",
   "version": "1.0.0",
+  "homepage": "https://bansalhritik.github.io/portfolio/",
   "description": "A personal portfolio website for Ritik Bansal",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx parcel src/index.html"
+    "start": "npx parcel src/index.html",
+    "deploy": "gh-pages -d build"
   },
   "author": "Ritik Bansal",
   "license": "ISC",
@@ -14,6 +16,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "gh-pages": "^6.0.0",
     "parcel": "^2.9.3",
     "postcss": "^8.4.30",
     "process": "^0.11.10",
