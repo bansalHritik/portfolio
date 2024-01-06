@@ -1,7 +1,8 @@
 function skill(name, logo) {
   return {
-    title: name, logo
-  }
+    title: name,
+    logo,
+  };
 }
 
 export const IntroductionContent = {
@@ -12,17 +13,18 @@ export const IntroductionContent = {
   summary:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   profilePic: "https://i.ibb.co/BVdMbnk/Profile.jpg",
+  resumeLink: "https://drive.google.com/uc?export=download&id=11Wl9B_RlOO-G1SzDzonm1XTuJZ2XxUyj",
 };
 
 export const SkillSetContent = [
   {
     title: "Frontend",
     skills: [
-      skill("Dotnet","dotnet"),
-      skill("C#","csharp"),
-      skill("Java","java"),
-      skill("React","react"),
-      skill("Angular","angular"),
+      skill("Dotnet", "dotnet"),
+      skill("C#", "csharp"),
+      skill("Java", "java"),
+      skill("React", "react"),
+      skill("Angular", "angular"),
     ],
   },
   {
@@ -37,12 +39,7 @@ export const SkillSetContent = [
   },
   {
     title: "Cloud Services",
-    skills: [
-      skill("API Gateway"),
-      skill("DynamoDB"),
-      skill("Step Function"),
-      skill("Lambda Function"),
-    ],
+    skills: [skill("API Gateway"), skill("DynamoDB"), skill("Step Function"), skill("Lambda Function")],
   },
 ];
 
@@ -51,29 +48,32 @@ export const ExperienceContent = {
   subHeading: "Details of all of my professional experience in the industry.",
   experiences: [
     {
-      position: "Software Engineer",
+      position: "Senior Engineer",
       companyName: "Nagarro",
-      date: "Jan-2021 To Present",
-      skills: [
-        skill(".Net Framework"),
-        skill("Angular"),
-        skill(".Net Core"),
-        skill("React"),
-        skill("Git")
-      ],
+      date: "Jan-2024 till Present",
+      skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
+      shortDesc: "It has been around 2 and half year working in this company.",
+    },
+    {
+      position: "Engineer",
+      companyName: "Nagarro",
+      date: "July-2021 To Dec-2023",
+      skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
+      shortDesc: "It has been around 2 and half year working in this company.",
+    },
+    {
+      position: "Associate Engineer",
+      companyName: "Nagarro",
+      date: "Jan-2021 To July-2022",
+      skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
       shortDesc: "It has been around 2 and half year working in this company.",
     },
     {
       position: "Software Developer Intern",
       companyName: "Memorres",
       date: "Oct-2020 To Jan-2021",
-      skills: [
-        skill("React"),
-        skill("React Native"),
-        skill("Express"),
-        skill("TypeScript")
-      ]
-    }
+      skills: [skill("React"), skill("React Native"), skill("Express"), skill("TypeScript")],
+    },
   ],
 };
 
@@ -87,7 +87,7 @@ export const ProjectContent = {
       description: "A placement platform for collage students in house.",
       imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
       repo: "",
-      link: ""
+      link: "",
     },
     {
       name: "Mp3 Song classifier",
@@ -95,7 +95,7 @@ export const ProjectContent = {
       description: "A console tool to categorize mp3 songs based on their genre, artist, etc",
       imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
       repo: "",
-      link: ""
+      link: "",
     },
     {
       name: "Book Shala",
@@ -103,7 +103,7 @@ export const ProjectContent = {
       description: "A intra-college platform to share books and notes among the juniors and peers.",
       imageLink: "https://artsaccessinc.org/wp-content/uploads/2023/08/Free-to-join-1024x577.jpg",
       repo: "",
-      link: ""
+      link: "",
     },
   ],
 };

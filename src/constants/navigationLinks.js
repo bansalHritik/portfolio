@@ -1,22 +1,22 @@
 export const navigationLinks = [
   {
-    title: 'About',
-    link: '',
+    title: "About",
+    link: "",
+    sectionId: "about",
   },
   {
-    title: 'Skills',
-    link: '',
+    title: "Skills",
+    link: "",
+    sectionId: "skillset",
   },
   {
-    title: 'Experience',
-    link: '',
+    title: "Experience",
+    link: "",
+    sectionId: "experience",
   },
   {
-    title: 'Projects',
-    link: '',
-  },
-  {
-    title: 'Education',
-    link: '',
+    title: "Projects",
+    link: "",
+    sectionId: "projects",
   },
 ];
