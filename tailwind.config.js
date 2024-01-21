@@ -43,6 +43,9 @@ module.exports = {
         type: "type 1.8s ease-out .8s infinite alternate-reverse both",
         "type-reverse": "type 1.8s ease-out 0s infinite alternate-reverse both",
       },
+      fontFamily: {
+        inter: ["'Inter'", "sans-serif"],
+      },
     },
   },
   plugins: [],

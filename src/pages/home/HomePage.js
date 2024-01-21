@@ -10,13 +10,13 @@ import { Button, Card, Chip, NavigationBar, Section, Textfield, TypeWriter } fro
 
 const ContactMe = ({ heading }) => {
   return (
-    <Section heading={heading} className="my-0" sectionName="contact-me">
+    <Section heading={heading} className="my-0 items-center" sectionName="contact-me">
       <Card className="p-4">
-        <form className="contact-me-form flex flex-col gap-5">
+        <form className="flex flex-col gap-5">
           <Textfield placeholder="Name" name="name" />
           <Textfield placeholder="Subject" name="Subject" />
           <Textfield placeholder="Message" name="message" />
-          <input type="submit" value="Messgae Me!" className="rounded-full bg-blue-200 mt-2" />
+          <input type="submit" value="Messgae Me!" className="rounded-md py-2 px-3 bg-blue-primary mt-2" />
         </form>
       </Card>
     </Section>
@@ -75,40 +75,32 @@ const ProjectTab = ({ tabTitle }) => (
   </div>
 );
 
-const ProjectTabs = ({ categories }) => (
-  <div className="flex self-center">
-    <div className="flex flex-row">
-      {categories?.map((category) => (
-        <ProjectTab tabTitle={category} />
-      ))}
-    </div>
-  </div>
-);
-
 const Project = ({ name, date, description, imageLink }) => (
-  <Card className="flex-col w-[200px] px-3 py-5">
-    <div className="flex w-full h-28 justify-center mb-5">
+  <Card className="flex-col w-80 px-5 py-5">
+    <div className="flex w-full h-40 justify-center mb-5">
       <img src={imageLink} className="rounded-md overflow-hidden" alt="" />
     </div>
     <div className="project-text-content">
       <p className="text-xl font-semibold">{name}</p>
-      <p className="text-sm text-gray-400">{date}</p>
-      <p className="text-sm text-gray-400">{description}</p>
+      <p className="text-sm text-gray-400 mt-3 mb-2">{date}</p>
+      <p className="text-sm text-gray-200">{description}</p>
+      <div className="mt-5 flex gap-4 items-center">
+        <Button text="Demo" className="bg-blue-primary rounded-md font-medium py-2 px-3" />
+        <Button text="Code" className="bg-blue-primary rounded-md font-medium py-2 px-3" />
+      </div>
     </div>
   </Card>
 );
 
 export const Projects = ({ heading, subHeading, projects }) => {
   return (
-    <section id="projects" className="p-5 mt-16 flex flex-col">
-      <p className="text-4xl text-center font-bold py-5">{heading}</p>
-      <ProjectTabs categories={["Personal", "Professional"]} />
-      <div className="mt-14">
+    <Section sectionName="projects" heading={heading} className="p-5 mt-16 flex flex-col">
+      <div className="mt-14 flex justify-around gap-x-11">
         {projects?.map((project, index) => (
           <Project {...project} key={index} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 
@@ -116,7 +108,7 @@ const Skill = ({ title, skills }) => {
   return (
     <div className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary w-96 justify-between p-5">
       <p className="text-center text-gray-200 font-semibold text-2xl mb-5">{title}</p>
-      <div className="flex flex-1 justify-center items-center flex-wrap gap-x-2">
+      <div className="flex flex-1 justify-center items-center flex-wrap gap-2">
         {skills?.map((props, index) => (
           <Chip key={index} {...props} />
         ))}
@@ -167,7 +159,7 @@ const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
 export const HomePage = () => (
   <>
     <Header />
-    <div className="bg-text text-white flex flex-col">
+    <div className="bg-text text-white flex flex-col font-inter">
       <div className="px-32 bg-slate-800">
         <Introduction {...IntroductionContent} />
         <SkillSet skillSets={SkillSetContent} />
