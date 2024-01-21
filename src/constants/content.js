@@ -19,27 +19,21 @@ export const IntroductionContent = {
 export const SkillSetContent = [
   {
     title: "Frontend",
-    skills: [
-      skill("Dotnet", "dotnet"),
-      skill("C#", "csharp"),
-      skill("Java", "java"),
-      skill("React", "react"),
-      skill("Angular", "angular"),
-    ],
+    skills: [skill("React"), skill("Angular"), skill("React Native"), skill("JavaScript"), skill("TypeScript")],
   },
   {
     title: "Backend",
     skills: [
-      skill("Dotnet", "dotnet"),
+      skill("Node.js", "dotnet"),
       skill("C#", "csharp"),
       skill("Java", "java"),
-      skill("React", "react"),
-      skill("Angular", "angular"),
+      skill(".NET Core", "react"),
+      skill(".NET Framework", "angular"),
     ],
   },
   {
-    title: "Cloud Services",
-    skills: [skill("API Gateway"), skill("DynamoDB"), skill("Step Function"), skill("Lambda Function")],
+    title: "Additional",
+    skills: [skill("AWS"), skill("Oracle"), skill("DynamoDB"), skill("Git")],
   },
 ];
 
@@ -51,28 +45,37 @@ export const ExperienceContent = {
       position: "Senior Engineer",
       companyName: "Nagarro",
       date: "Jan-2024 till Present",
-      skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
-      shortDesc: "It has been around 2 and half year working in this company.",
+      skills: [skill("AWS MSK"), skill("AWS SQS"), skill("AWS Lambda"), skill("API Gateway"), skill("Windows Service")],
+      shortDesc: "Worked on complex asyncronous applications using AWS based services and Windows services.",
     },
     {
       position: "Engineer",
       companyName: "Nagarro",
       date: "July-2021 To Dec-2023",
-      skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
-      shortDesc: "It has been around 2 and half year working in this company.",
+      skills: [
+        skill(".Net Core"),
+        skill("AWS Step Function"),
+        skill("AWS EventBridge"),
+        skill("AWS Lambda"),
+        skill("API Gateway"),
+        skill("Angular"),
+      ],
+      shortDesc: "Worked on AWS, REST and WebSocket APIs and asyncronous applications.",
     },
     {
       position: "Associate Engineer",
       companyName: "Nagarro",
       date: "Jan-2021 To July-2022",
       skills: [skill(".Net Framework"), skill("Angular"), skill(".Net Core"), skill("React"), skill("Git")],
-      shortDesc: "It has been around 2 and half year working in this company.",
+      shortDesc: "Worked on API and UI test frameworks, Angular and .NET framework based application",
     },
     {
       position: "Software Developer Intern",
       companyName: "Memorres",
       date: "Oct-2020 To Jan-2021",
       skills: [skill("React"), skill("React Native"), skill("Express"), skill("TypeScript")],
+      shortDesc:
+        "Created various mobile application using React-Native, including QR code based application, Sudoku game, WiFi scanner, etc.",
     },
   ],
 };
