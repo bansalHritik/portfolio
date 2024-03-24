@@ -11,9 +11,9 @@ import { Button, Card, Chip, NavigationBar, Section, Textfield, TypeWriter } fro
 const ContactMe = ({ heading }) => {
   return (
     <Section heading={heading} className="my-0 items-center" sectionName="contact-me">
-      <Card className="p-4">
-        <form className="flex flex-col gap-5">
-          <Textfield placeholder="Name" name="name" />
+      <Card className="p-14 lg:p-4 w-[80%] lg:w-fit">
+        <form className="flex flex-1 flex-col w-auto gap-5">
+          <Textfield placeholder="Name" className="w-auto" name="name" />
           <Textfield placeholder="Subject" name="Subject" />
           <Textfield placeholder="Message" name="message" />
           <input type="submit" value="Messgae Me!" className="rounded-md py-2 px-3 bg-blue-primary mt-2" />
@@ -42,9 +42,9 @@ const Header = () => (
 
 const Introduction = ({ greeting, name, tagLinePrefix, skills, summary, profilePic, resumeLink }) => {
   return (
-    <section className="flex flex-row justify-center text-white py-20" id="about">
-      <div className="flex flex-col flex-1 justify-between">
-        <p className="text-5xl my-5 font-bold">{greeting}</p>
+    <section className="flex flex-col lg:flex-row sm:justify-center text-white py-20" id="about">
+      <div className="flex flex-col flex-1 justify-between order-2 lg:order-1 items-center lg:items-start mt-10 lg:mt-0">
+        <p className="text-4xl my-5 font-bold">{greeting}</p>
         <p className="text-5xl my-2 font-bold">{name}</p>
         <TypeWriter text={skills[0]} />
 
@@ -62,7 +62,7 @@ const Introduction = ({ greeting, name, tagLinePrefix, skills, summary, profileP
           Download my resume
         </a>
       </div>
-      <div className="flex flex-1 self-center justify-center">
+      <div className="flex flex-1 self-center justify-center order-1 lg:order-2">
         <img className="h-96 w-auto rounded-full" src={profilePic} alt="Profile Image"></img>
       </div>
     </section>
@@ -76,8 +76,8 @@ const ProjectTab = ({ tabTitle }) => (
 );
 
 const Project = ({ name, date, description, imageLink }) => (
-  <Card className="flex-col w-80 px-5 py-5">
-    <div className="flex w-full h-40 justify-center mb-5">
+  <Card className="flex-col w-[80%] lg:w-80 px-5 py-5">
+    <div className="flex w-full h-60 lg:h-40 justify-center mb-5">
       <img src={imageLink} className="rounded-md overflow-hidden" alt="" />
     </div>
     <div className="project-text-content">
@@ -95,7 +95,7 @@ const Project = ({ name, date, description, imageLink }) => (
 export const Projects = ({ heading, subHeading, projects }) => {
   return (
     <Section sectionName="projects" heading={heading} className="p-5 mt-16 flex flex-col">
-      <div className="mt-14 flex justify-around gap-x-11">
+      <div className="mt-14 flex items-center justify-center flex-col lg:flex-row lg:justify-around gap-x-11 gap-y-11">
         {projects?.map((project, index) => (
           <Project {...project} key={index} />
         ))}
@@ -106,7 +106,7 @@ export const Projects = ({ heading, subHeading, projects }) => {
 
 const Skill = ({ title, skills }) => {
   return (
-    <div className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary w-96 justify-between p-5">
+    <div className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary lg:w-96 justify-between p-5">
       <p className="text-center text-gray-200 font-semibold text-2xl mb-5">{title}</p>
       <div className="flex flex-1 justify-center items-center flex-wrap gap-2">
         {skills?.map((props, index) => (
@@ -118,10 +118,9 @@ const Skill = ({ title, skills }) => {
 };
 
 export const SkillSet = ({ skillSets }) => {
-  console.log(skillSets);
   return (
-    <Section heading="Skills" sectionName="skillset">
-      <div className="flex flex-1 justify-around gap-x-6">
+    <Section heading="Skills" className="justify-center items-center" sectionName="skillset">
+      <div className="flex flex-1 flex-col lg:flex-row justify-around lg:gap-x-6 gap-y-6">
         {skillSets?.map((skillset, index) => (
           <Skill {...skillset} key={"skill_" + index} />
         ))}
@@ -142,7 +141,7 @@ const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
         <p className="font-light">{companyName}</p>
         <p className="text-sm font-light">{date}</p>
         <p className="my-4 font-extralight">{shortDesc}</p>
-        <div className="flex gap-4">
+        <div className="flex flex-wrap gap-4">
           {skills?.map((skill, index) => (
             <Chip
               key={index}
