@@ -7,6 +7,7 @@ import {
   SkillSetContent,
 } from "../../constants/content";
 import { Button, Card, Chip, NavigationBar, Section, Textfield, TypeWriter } from "../../components";
+import { motion } from "framer-motion";
 
 const ContactMe = ({ heading }) => {
   return (
@@ -23,12 +24,39 @@ const ContactMe = ({ heading }) => {
   );
 };
 
+const experienceVariants = {
+  left: {
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.3,
+        stiffness: 100,
+      },
+    }),
+    hidden: { opacity: 0, x: -100 },
+  },
+  right: {
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.3,
+        stiffness: 100,
+      },
+    }),
+    hidden: { opacity: 0, x: 100 },
+  },
+};
+
 const Experience = ({ heading, subheading, experiences }) => {
   return (
     <Section heading={heading} subHeading={subheading} sectionName="experience">
-      {experiences?.map((experience, index) => (
-        <Timeline {...experience} key={index} />
-      ))}
+      <div>
+        {experiences?.map((experience, index) => (
+          <Timeline {...experience} key={index} index={index} />
+        ))}
+      </div>
     </Section>
   );
 };
@@ -43,7 +71,11 @@ const Header = () => (
 const Introduction = ({ greeting, name, tagLinePrefix, skills, summary, profilePic, resumeLink }) => {
   return (
     <section className="flex flex-col lg:flex-row sm:justify-center text-white py-20" id="about">
-      <div className="flex flex-col flex-1 justify-between order-2 lg:order-1 items-center lg:items-start mt-10 lg:mt-0">
+      <motion.div
+        initial={{ x: -100, opacity: 0.3 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="flex flex-col flex-1 justify-between order-2 lg:order-1 items-center lg:items-start mt-10 lg:mt-0"
+      >
         <p className="text-4xl my-5 font-bold">{greeting}</p>
         <p className="text-5xl my-2 font-bold">{name}</p>
         <TypeWriter text={skills[0]} />
@@ -61,10 +93,14 @@ const Introduction = ({ greeting, name, tagLinePrefix, skills, summary, profileP
         >
           Download my resume
         </a>
-      </div>
-      <div className="flex flex-1 self-center justify-center order-1 lg:order-2">
+      </motion.div>
+      <motion.div
+        initial={{ x: 100, opacity: 0.3 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="flex flex-1 self-center justify-center order-1 lg:order-2"
+      >
         <img className="h-96 w-auto rounded-full" src={profilePic} alt="Profile Image"></img>
-      </div>
+      </motion.div>
     </section>
   );
 };
@@ -104,34 +140,62 @@ export const Projects = ({ heading, subHeading, projects }) => {
   );
 };
 
-const Skill = ({ title, skills }) => {
+const skillsetVariants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { staggerChildren: 0.2 },
+  },
+  hidden: {
+    opacity: 0,
+    y: 100,
+  },
+};
+
+const Skill = ({ title, skills, index }) => {
   return (
-    <div className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary lg:w-96 justify-between p-5">
+    <motion.div
+      variants={skillsetVariants}
+      className="flex flex-col shadow-md shadow-blue-primary border-[1px] rounded-md border-blue-primary lg:w-96 justify-between p-5"
+    >
       <p className="text-center text-gray-200 font-semibold text-2xl mb-5">{title}</p>
       <div className="flex flex-1 justify-center items-center flex-wrap gap-2">
         {skills?.map((props, index) => (
           <Chip key={index} {...props} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export const SkillSet = ({ skillSets }) => {
   return (
     <Section heading="Skills" className="justify-center items-center" sectionName="skillset">
-      <div className="flex flex-1 flex-col lg:flex-row justify-around lg:gap-x-6 gap-y-6">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        variants={skillsetVariants}
+        viewport={{once:true}}
+        className="flex flex-1 flex-col lg:flex-row justify-around lg:gap-x-6 gap-y-6"
+      >
         {skillSets?.map((skillset, index) => (
-          <Skill {...skillset} key={"skill_" + index} />
+          <Skill {...skillset} key={"skill_" + index} index={index} />
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 };
 
-const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
+const Timeline = ({ position, companyName, date, skills, shortDesc, index }) => {
   return (
-    <div className="rounded-md shadow-md shadow-blue-primary border-2 border-blue-primary flex flex-1 mt-8 p-5 flex-row">
+    <motion.div
+      custom={index}
+      variants={index % 2 == 0 ? experienceVariants.left : experienceVariants.right}
+      initial="hidden"
+      whileInView={"visible"}
+      viewport={{once:true}}
+      className="rounded-md shadow-md shadow-blue-primary border-2 border-blue-primary flex flex-1 mt-8 p-5 flex-row"
+    >
       <div className="flex flex-col items-center">
         <div className="w-3 h-3 m-1 rounded-full border-2 border-blue-primary" />
         <div className="flex flex-1 w-[2px] bg-blue-primary" />
@@ -151,7 +215,7 @@ const Timeline = ({ position, companyName, date, skills, shortDesc }) => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
